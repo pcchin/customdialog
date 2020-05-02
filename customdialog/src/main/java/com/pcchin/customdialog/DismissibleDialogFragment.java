@@ -72,6 +72,47 @@ public class DismissibleDialogFragment extends DefaultDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
+        updateDialog(dialog);
+        return dialog;
+    }
+
+    //****** Start of custom functions ******//
+    
+    /** Sets the listener for the positive button.
+     * @param text The text for the button.
+     * @param listener The OnClickListener for the button. **/
+    public void setPositiveButton(String text, Button.OnClickListener listener) {
+        positiveButtonText = text;
+        positiveButtonListener = listener;
+        if (getDialog() != null) {
+            updateDialog(getDialog());
+        }
+    }
+
+    /** Sets the listener for the negative button.
+     * @param text The text for the button.
+     * @param listener The OnClickListener for the button. **/
+    public void setNegativeButton(String text, Button.OnClickListener listener) {
+        negativeButtonText = text;
+        negativeButtonListener = listener;
+        if (getDialog() != null) {
+            updateDialog(getDialog());
+        }
+    }
+
+    /** Sets the listener for the neutral button.
+     * @param text The text for the button.
+     * @param listener The OnClickListener for the button. **/
+    public void setNeutralButton(String text, Button.OnClickListener listener) {
+        neutralButtonText = text;
+        neutralButtonListener = listener;
+        if (getDialog() != null) {
+            updateDialog(getDialog());
+        }
+    }
+
+    /** Updates the onShowListener for a dialog. **/
+    private void updateDialog(Dialog dialog) {
         dialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialogInterface) {
@@ -117,33 +158,6 @@ public class DismissibleDialogFragment extends DefaultDialogFragment {
                 }
             }
         });
-        return dialog;
-    }
-
-    //****** Start of custom functions ******//
-    
-    /** Sets the listener for the positive button.
-     * @param text The text for the button.
-     * @param listener The OnClickListener for the button. **/
-    public void setPositiveButton(String text, Button.OnClickListener listener) {
-        positiveButtonText = text;
-        positiveButtonListener = listener;
-    }
-
-    /** Sets the listener for the negative button.
-     * @param text The text for the button.
-     * @param listener The OnClickListener for the button. **/
-    public void setNegativeButton(String text, Button.OnClickListener listener) {
-        negativeButtonText = text;
-        negativeButtonListener = listener;
-    }
-
-    /** Sets the listener for the neutral button.
-     * @param text The text for the button.
-     * @param listener The OnClickListener for the button. **/
-    public void setNeutralButton(String text, Button.OnClickListener listener) {
-        neutralButtonText = text;
-        neutralButtonListener = listener;
     }
     
     /** Set the function that would be run on the OnShowListener.

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">CustomDialog</string>
+
+    <string name="text_1">Individual Dialogs</string>
+    <string name="text_2">Learn More</string>
+
+    <string name="button_1">DefaultDialogFragment</string>
+    <string name="button_1_text">This DialogFragment is a default DialogFragment and will be automatically dismissed when rotated.</string>
+    <string name="button_2">DefaultDialogFragment - Rotatable</string>
+    <string name="button_2_text">This DialogFragment is able to be rotated.</string>
+    <string name="button_3">DismissibleDialogFragment</string>
+    <string name="button_3_text">This DialogFragment would only be dismissed when OK is pressed.</string>
+    <string name="button_4">DismissibleDialogFragment with OnShowListener</string>
+    <string name="button_4_text">This DialogFragment is a static class extended from DismissibleDialogFragment with onDialogShown overridden.</string>
+    <string name="button_5">Fully Custom DialogFragment</string>
+    <string name="button_5_text">This DialogFragment only has a view that can be set, and no titles or buttons for the DialogFragment would be shown.</string>
+
+    <string name="toast_ok">OK Pressed</string>
+    <string name="toast_learn_more">Learn more pressed</string>
+    <string name="toast_cancel">Cancel Pressed</string>
+    <string name="toast_on_show">onShowListener pressed</string>
+    <string name="toast_on_dismiss">onDismissListener pressed</string>
+
+    <string name="popup_1">Custom Popup</string>
+    <string name="popup_2">Dismiss popup</string>
+</resources>

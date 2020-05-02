@@ -55,7 +55,7 @@ bintray {
         repo = 'customdialog'
         name = 'com.pcchin.customdialog'
         configurations = ['archives']
-        desc = 'A series of custom AlertDialogs to make your life easier.'
+        desc = 'A series of custom DialogFragments for ease of use.'
         websiteUrl = 'https://github.com/pcchin/customdialog'
         issueTrackerUrl = 'https://github.com/pcchin/customdialog/issues'
         vcsUrl = 'https://github.com/pcchin/customdialog.git'

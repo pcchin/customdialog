@@ -25,6 +25,7 @@ The usage for the fragments can be found in the [Wiki](https://github.com/pcchin
 
 ## Example Implementation
 Download the example APK [here](/example.apk).
+![](/example-implementation.png)
 
 ## Contribution
 Any contribution is welcome, feel free to add any issues or pull requests to the repository.

@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentManager;
  * This would override all previous buttons set in the AlertDialog as well as the OnShowListener of the AlertDialog.
  * This class accepts both android.app.AlertDialog and androidx.appcompat.app.AlertDialog. **/
 public class DismissibleDialogFragment extends DefaultDialogFragment {
+    private static final String STUB = "Stub";
     private String positiveButtonText, negativeButtonText, neutralButtonText;
     private Button.OnClickListener positiveButtonListener, negativeButtonListener, neutralButtonListener;
 
@@ -64,7 +65,7 @@ public class DismissibleDialogFragment extends DefaultDialogFragment {
     public DismissibleDialogFragment(androidx.appcompat.app.AlertDialog dialog, FragmentManager manager, String tag) {
         super(dialog, manager, tag);
     }
-    
+
     //****** Start of overridden functions ******//
 
     /** Sets the onShowListener for the dialog, which sets the listeners for the buttons. **/
@@ -77,7 +78,7 @@ public class DismissibleDialogFragment extends DefaultDialogFragment {
     }
 
     //****** Start of custom functions ******//
-    
+
     /** Sets the listener for the positive button.
      * @param text The text for the button.
      * @param listener The OnClickListener for the button. **/
@@ -113,6 +114,23 @@ public class DismissibleDialogFragment extends DefaultDialogFragment {
 
     /** Updates the onShowListener for a dialog. **/
     private void updateDialog(Dialog dialog) {
+        // Reset the buttons before setting their onCLickListeners in onShowListener
+        // Stub is added to ensure the buttons would not be empty when they are set, causing the AlertDialog to not ignore the button completely
+        if (dialog instanceof android.app.AlertDialog) {
+            android.app.AlertDialog alertDialog = (android.app.AlertDialog) dialog; // Reduce redundant casting
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, STUB, (DialogInterface.OnClickListener) null);
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, STUB, (DialogInterface.OnClickListener) null);
+            alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, STUB, (DialogInterface.OnClickListener) null);
+        } else if (dialog instanceof androidx.appcompat.app.AlertDialog) {
+            androidx.appcompat.app.AlertDialog alertDialog = (androidx.appcompat.app.AlertDialog) dialog; // Reduce redundant casting
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, STUB, (DialogInterface.OnClickListener) null);
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, STUB, (DialogInterface.OnClickListener) null);
+            alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, STUB, (DialogInterface.OnClickListener) null);
+        } else {
+            throw new IllegalStateException("Dialog provided is not an instance of " +
+                    "android.app.AlertDialog or androidx.appcompat.app.AlertDialog");
+        }
+
         dialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialogInterface) {
@@ -159,7 +177,7 @@ public class DismissibleDialogFragment extends DefaultDialogFragment {
             }
         });
     }
-    
+
     /** Set the function that would be run on the OnShowListener.
      * This function would run after the buttons are set.
      * If you wish to run a function within the onShowListener,

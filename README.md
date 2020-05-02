@@ -17,7 +17,7 @@ DismissibleDialogFragment is an extension of DefaultDialogFragment, which overri
 This library is available in JCenter and Maven Central. To install, you would need to include the following into your `project/build.gradle`:
 
 ```
-implementation 'com.pcchin.customdialog:customdialog:1.0.1'
+implementation 'com.pcchin.customdialog:customdialog:1.0.2'
 ```
 
 ## Usage

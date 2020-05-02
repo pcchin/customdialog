@@ -14,7 +14,7 @@
  */
 
 apply plugin: 'com.jfrog.bintray'
-version = '1.0.1'
+version = '1.0.2'
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -65,8 +65,8 @@ bintray {
         githubRepo = 'pcchin/customdialog'
 
         version {
-            name = '1.0.1'
-            vcsTag = '1.0.1'
+            name = '1.0.2'
+            vcsTag = '1.0.2'
             gpg {
                 sign = true
             }

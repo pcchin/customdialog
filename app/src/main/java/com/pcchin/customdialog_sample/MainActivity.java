@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     public void dismissibleDialogFragment(View view) {
         // Dialog Fragment that is not automatically dismissed when a button is pressed
         // No neutral button for this one
-        DismissibleDialogFragment fragment = new DismissibleDialogFragment(defaultDialog
+        DismissibleDialogFragment fragment = new DismissibleDialogFragment(new AlertDialog.Builder(MainActivity.this)
                 .setTitle(R.string.button_3)
                 .setMessage(R.string.button_3_text)
                 .create());

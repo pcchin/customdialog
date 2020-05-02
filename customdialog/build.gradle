@@ -31,3 +31,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+// Must be at the bottom of the file
+apply from: 'install.gradle'
+apply from: 'bintray.gradle'

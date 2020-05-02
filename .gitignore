@@ -1,4 +1,5 @@
 # Built application files
+!example.apk
 *.apk
 *.aar
 *.ap_

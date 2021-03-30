@@ -1,15 +1,17 @@
 apply plugin: 'com.android.library'
 
+String libVersion = '1.0.4'
+
 android {
     compileSdkVersion 30
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         // Min SDK set to 14 due to buggy behavior below API 14
         minSdkVersion 14
         targetSdkVersion 30
-        versionCode 3
-        versionName "1.0.3"
+        versionCode 4
+        versionName libVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -26,12 +28,18 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
 
-// Must be at the bottom of the file
-apply from: 'install.gradle'
-apply from: 'bintray.gradle'
+ext {
+    PUBLISH_GROUP_ID = 'com.pcchin.customdialog'
+    PUBLISH_ARTIFACT_ID = 'customdialog'
+    PUBLISH_VERSION = libVersion
+    PUBLISH_VCS = 'github.com/pcchin/customdialog'
+    PUBLISH_DESC = 'A series of custom DialogFragments for ease of use.'
+    USE_S01_OSSRH = false
+}
+apply from: 'deploy-maven.gradle'

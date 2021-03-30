@@ -1,5 +1,4 @@
 # LicenseView
-[![Bintray](https://api.bintray.com/packages/pcchin/customdialog/com.pcchin.customdialog/images/download.svg)](https://bintray.com/pcchin/customdialog/com.pcchin.customdialog/_latestVersion)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.pcchin.customdialog/customdialog/badge.svg)](https://search.maven.org/artifact/com.pcchin.customdialog/customdialog)
 
 ## Library Info
@@ -14,10 +13,28 @@ DismissibleDialogFragment is an extension of DefaultDialogFragment, which overri
  The onShowListener for the AlertDialog can be added by overriding the `onDialogShown(Dialog dialog)` method for 
 
 ## Installation
-This library is available in JCenter and Maven Central. To install, you would need to include the following into your `project/build.gradle`:
+This library is available in Maven Central and a backup is available on my personal repository. To install, you would need to include the following into your `project/build.gradle`:
 
 ```
-implementation 'com.pcchin.customdialog:customdialog:1.0.2'
+implementation 'com.pcchin.customdialog:customdialog:1.0.3'
+```
+
+You may also need to include the following in your `build.gradle`:
+
+```
+buildscript {
+    ...
+}
+
+allprojects {
+    ...
+    repositories {
+        ...
+        // Use this if Maven Central is not working
+        // maven { url "https://nexus.pcchin.com/repository/maven-releases/" }
+        mavenCentral()
+    }
+}
 ```
 
 ## Usage
